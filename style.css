@@ -1,19 +1,35 @@
-button {
-    position: absolute;
-    top: 10px;
-    left: 1325px;
-    padding: 10px 40px;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #303030;
-    background: #ff0000;
-    color: #fff;
-    cursor: pointer;
-    font: 1.2em 'consolas';
-    transition: transform 300ms ease;
-    z-index: 2;
+body,
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: crosshair;
 }
 
-button:active {
-    transform: scale(0.95);
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.S {
+    position: fixed;
+    left: 70%;
+    top: 1%;
+    width: 5%;
+}
+
+.C {
+    position: fixed;
+    left: 80%;
+    top: 1%;
+    width: 5%;
+}
+
+.B {
+    position: fixed;
+    left: 90%;
+    top: 1%;
+    width: 5%;
 }
