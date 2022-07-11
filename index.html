@@ -3,16 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Board</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Whiteboard</title>
 </head>
 
 <body>
-    <button onclick="resize()">SCREEN CLEAR</button>
-    <canvas id="canvas"> </canvas>
+
+
+    <input onchange="getThing()" type="color" id="C" class="C" value="#000000">
+    <input onchange="getThing()" type="range" min="1" max="200" id="S" class="S" value="6">
+    <button onclick="clearAll()" type="button" id="B" class="B">Clear</button>
+
+
+    <canvas id="canvas"></canvas>
+
+
     <script src="javaScript.js"></script>
+
 </body>
 
 </html>
