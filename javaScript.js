@@ -1,35 +1,47 @@
-const ctx = document.getElementById('canvas').getContext('2d');
-window.addEventListener('resize', resize);
-resize();
+var canvas = document.getElementById("canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var ctx = canvas.getContext("2d");
 
-let mousePos = {
-    x: 0,
-    y: 0
+
+
+function getThing() {
+    var getC = document.getElementById("C").value;
+    var getS = document.getElementById("S").value;
+
+    return {
+        getC,
+        getS
+    };
 }
-window.addEventListener('mousemove', draw);
-window.addEventListener('mousedown', mousePosition);
-window.addEventListener('mouseenter', mousePosition);
 
-function mousePosition(e) {
-    mousePos.x = e.clientx;
-    mousePos.x = e.clienty;
-}
 
-function resize() {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
+function clearAll() {
+    canvas.width = canvas.width;
 }
 
 function draw(e) {
-    if (e.buttons !== 1)
-        return;
-
-    ctx.beginPath();
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = '#111';
-    ctx.linewidth = 4;
-    ctx.moveTo(mousePos.x, mousePos.y);
-    mousePosition(e);
-    ctx.lineTo(mousePos.x, mousePos.y);
+    if (drawing == false) return;
+    let editor = getThing();
+    ctx.lineWidth = editor.getS;
+    ctx.strokeStyle = editor.getC;
+    ctx.lineCap = "round";
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.moveTo(e.clientX, e.clientY);
     ctx.stroke();
+
 }
+
+function startDraw(e) {
+    drawing = true;
+    draw(e);
+}
+
+function overDraw() {
+    drawing = false;
+    ctx.beginPath();
+}
+
+canvas.addEventListener("mousedown", startDraw);
+canvas.addEventListener("mouseup", overDraw);
+canvas.addEventListener("mousemove", draw);
